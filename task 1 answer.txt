@@ -1,0 +1,92 @@
+
+1. Difference between HTTP1.1 vs HTTP2 
+
+	HTTP2 is binary, where as HTTP1 is textual.
+	HTTP2 is fully multiplexed, instead of ordered and blocking.
+	HTTP2 can, therefore, use one connection for parallelism.
+	HTP2 uses header compression to reduce overhead.
+	HTTP2 allows servers to “push” responses proactively into client caches.
+	HTTP2 is secured by default.
+
+2. http version history 
+
+	HTTP (HyperText Transfer Protocol) is the underlying protocol of the World Wide Web. Developed by Tim Berners-Lee and his team between 1989-1991
+
+HTTP/0.9 — The One-line Protocol
+Initial version of HTTP — a simple client-server, request-response, telenet-friendly protocol
+Request nature: single-line (method + path for requested document)
+Methods supported: GET only
+Response type: hypertext only
+Connection nature: terminated immediately after the response
+No HTTP headers (cannot transfer other content type files), No status/error codes, No URLs, No versioning
+
+	HTTP/1.0 — Building extensibility
+Browser-friendly protocol
+Provided header fields including rich metadata about both request and response (HTTP version number, status code, content type)
+Response: not limited to hypertext (Content-Type header provided ability to transmit files other than plain HTML files — e.g. scripts, stylesheets, media)
+Methods supported: GET , HEAD , POST
+Connection nature: terminated immediately after the response
+
+	HTTP/1.1 — The standardized protocol
+This is the HTTP version currently in common use.
+Introduced critical performance optimizations and feature enhancements — persistent and pipelined connections, chunked transfers, compression/decompression, content negotiations, virtual hosting (a server with a single IP Address hosting multiple domains), faster response and great bandwidth savings by adding cache support.
+Methods supported: GET , HEAD , POST , PUT , DELETE , TRACE , OPTIONS
+Connection nature: long-lived
+
+	HTTPS
+Hyper Text Transfer Protocol Secure (HTTPS) is the secure version of HTTP. It uses SSL/TLS for secure encrypted communications.
+Originally developed by Netscape in mid-1990s, SSL (Secure Socket Layer) is a cryptographic protocol enhancement to HTTP, which defines how client and server should communicate with each other securely. TLS (Transport Layer Security) is the successor of SSL.
+An HTTPS connection can protect the data transfer from the man-in-the-middle attacks and common security threats by providing bidirectional encryption for communications between a client and server.
+
+	HTTP/2.0 and the future
+All above features are being used by major web servers and browsers today. But modern enhancements like HTTP/2.0, Server Side Events (SSE), and Websockets have changed the way that the traditional HTTP works. In my next article on Web API Design with HTTP and Websockets, we will discuss how we should choose them in real-world projects.
+
+3. List 5 difference between Browser JS(console) vs Nodejs 
+
+Node js :
+	1)Node doesn’t have a predefined “window” object cause it doesn’t have a window to draw anything.
+
+	2)“location” object is related to a particular url; that means it is for page specific. So, node doesn’t require that.
+
+	3)Ofcourse Node doesn’t have “document” object also, cause it never have to render anything in a page.
+
+	4)Node has “global”, which is a predefined global object. It contains several functions that are not available in browsers, cause they are needed for server side works only.
+
+	5)“require” object is predefined in Node which is used to include modules in the app.
+
+Browser js :
+	1)“window” is a predefined global object which has functions and attributes, that have to deal with window that has been drawn.
+
+	2)“location” is another predefined object in browsers, that has all the information about the url we have loaded.
+
+	3)“document”, which is also another predefined global variable in browsers, has the html which is rendered.
+
+	4)Browsers may have an object named “global”, but it will be the exact one as “window”.
+
+	5)Browsers don’t have “require” predefined. You may include it in your app for asynchronous file loading.
+
+4. what happens when you type a URL in the address bar in the browser?
+
+   	1)Browser checks cache for DNS entry to find the corresponding IP address of website.
+ It looks for following cache. If not found in one, then continues checking to the next until found.
+        Browser Cache
+        Operating Systems Cache
+        Router Cache
+        ISP Cache
+	2) If not found in cache, ISP’s (Internet Service Provider) DNS server initiates a DNS query to find IP address of server that hosts the domain name.
+   The requests are sent using small data packets that contain information content of request and IP address it is destined for.
+
+	3) Browser initiates a TCP (Transfer Control Protocol) connection with the server using synchronize(SYN) and acknowledge(ACK) messages.
+
+	4)Browser sends an HTTP request to the web server. GET or POST request.
+
+	5)Server on the host computer handles that request and sends back a response. It assembles a response in some format like JSON, XML and HTML.
+
+	6)Server sends out an HTTP response along with the status of response.
+
+	7)Browser displays HTML content
+
+
+
+
+
